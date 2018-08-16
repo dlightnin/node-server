@@ -38,11 +38,11 @@ app.use((req,res,next)=>{
   });
   next();
 });
-
-app.use((req,res,next)=>{
-  res.render('maintenance');
-
-});
+//display maintenance for every page 
+// app.use((req,res,next)=>{
+//   res.render('maintenance');
+//
+// });
 
 app.get('/about',(req,resp)=>{
   // resp.send('<h2>ABOUT PAGE BOI</h2>');
