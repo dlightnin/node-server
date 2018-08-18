@@ -60,6 +60,12 @@ app.get('/',(req,resp)=>{
   });//render any of the templates u have set up, with the current view engine
 })
 
+app.get('/project',(req,resp)=>{
+  // resp.send('<h2>ABOUT PAGE BOI</h2>');
+  resp.render('project',{
+    title: "Project Page"
+  });//render any of the templates u have set up, with the current view engine
+})
 app.get('/bad',(req,resp)=>{
   resp.send({error:'error message'});
 })
