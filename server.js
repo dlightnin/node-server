@@ -1,7 +1,8 @@
 const express= require('express');
 const hbs= require('hbs');
 const fs = require('fs');
-
+const port = process.env.PORT || 3000; // stores all of the environment variables as key value pairs
+//PORT heroku env var
 var app = express ();
 app.use(express.static(__dirname + '/public'));//use this directory for our server
 hbs.registerPartials(__dirname + '/views/partials');
@@ -38,7 +39,7 @@ app.use((req,res,next)=>{
   });
   next();
 });
-//display maintenance for every page 
+//display maintenance for every page
 // app.use((req,res,next)=>{
 //   res.render('maintenance');
 //
@@ -62,4 +63,6 @@ app.get('/',(req,resp)=>{
 app.get('/bad',(req,resp)=>{
   resp.send({error:'error message'});
 })
-app.listen(3000);
+app.listen(port , ()=>{
+  console.log(`server is up on port ${port}`);
+});
